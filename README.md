@@ -1,92 +1,72 @@
-# PC Optimizer 🎮⚡
+# PC Optimizer — Oyun Performans Aracı
 
-Valorant, CS2 ve benzeri rekabetçi FPS oyunlarında düşük gecikme (lag) ve
-kararlı FPS için Windows 11'in **gerçek, Microsoft tarafından belgelenmiş**
-ayarlarını tek tıkla uygulayan açık kaynaklı bir masaüstü aracı.
+Valorant, CS2 gibi oyunlar için **gerçek, belgelenmiş ve geri alınabilir**
+Windows ayarlarını tek tıkla uygulayan bir masaüstü uygulaması.
 
-## Neden bu araç?
+## Önemli — dürüst bir not
 
-İnternette dolaşan "PC hızlandırıcı" uygulamalarının çoğu abartılı vaatlerde
-bulunur ve ne yaptığını gizler. Bu proje tam tersini hedefliyor:
+Bu uygulama "gizli mucize hızlandırma scripti" değildir. İnternette dolaşan
+çoğu "FPS booster" uygulaması abartılı vaatlerde bulunur. Burada sadece
+gerçekten belgelenmiş, Microsoft tarafından tanımlı ayarlar kullanılıyor:
 
-- ✅ **Şeffaf** — her ayarın ne işe yaradığı arayüzde açıkça yazıyor
-- ✅ **Geri alınabilir** — her değişiklikten önce otomatik yedek alınır,
-  tek tıkla eski hâline dönebilirsin
-- ✅ **Açık kaynak** — kodun tamamı burada, ne yaptığını kendin doğrulayabilirsin
-- ❌ **Mucize yok** — donanımın belirlediği fiziksel sınırı hiçbir ayar aşamaz
+- Güç planını Yüksek Performans yapmak
+- Multimedia/oyun görev önceliklerini yükseltmek
+- Nagle algoritmasını kapatmak (küçük paketlerde gecikmeyi azaltır)
+- TCP auto-tuning seviyesini normalleştirmek
+- Windows Game Mode'u açmak
+- (isteğe bağlı) Hardware GPU Scheduling'i açmak
+- Ağ kısıtlama indeksini (NetworkThrottlingIndex) kaldırmak
+- Game Bar arka plan kaydını (Game DVR) kapatmak
+- (isteğe bağlı) Fare işaretçi ivmelendirmesini kapatmak
+- Tam ekran optimizasyonu sistem tercihini ayarlamak
 
-## Neler yapıyor?
+Uygulamanın alt kısmında geliştiriciye destek olmak isteyenler için
+Ko-fi, e-posta, IBAN ve USDT (TRC20) bilgileri yer alıyor — tamamen isteğe bağlı.
 
-- Güç planını Yüksek Performans'a alır
-- Multimedia/oyun görev önceliklerini yükseltir (SystemResponsiveness)
-- Nagle algoritmasını kapatır (TCP gecikme azaltma)
-- TCP auto-tuning seviyesini normalleştirir
-- Windows Game Mode'u açar
-- Ağ kısıtlama indeksini (NetworkThrottlingIndex) kaldırır
-- Game Bar arka plan kaydını (Game DVR) kapatır
-- (isteğe bağlı) Hardware GPU Scheduling (HAGS) açar
-- (isteğe bağlı) Fare işaretçi ivmelendirmesini kapatır
-- Tam ekran optimizasyonu sistem tercihini ayarlar
+Donanım donanımdır — zayıf bir GPU'yu bu ayarlar güçlü yapmaz. Ama bu
+ayarlar gerçekten CPU/ağ kaynaklı mikro-takılmaları ve gecikme
+dalgalanmalarını azaltabilir.
 
-Her ayarın öncesinde otomatik yedek alınır; uygulama içindeki
-**"Eski Haline Döndür"** butonuyla tüm değişiklikler tek tıkla geri alınabilir.
+**Her ayar, uygulanmadan önce otomatik yedeklenir** ve uygulama içindeki
+"Eski Haline Döndür" butonuyla tek tıkla geri alınabilir.
 
-## Kurulum
+## Gereksinimler
 
-### Seçenek 1 — Hazır exe (önerilen)
-1. [Releases](https://github.com/htoklu/PCOptimizer/releases) sekmesinden
-   en son sürümün `.exe` dosyasını indir
-2. Dosyaya sağ tık → **Yönetici olarak çalıştır**
-   (registry değiştirdiği için admin yetkisi şart)
+- Windows 11
+- [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) (sadece derleme için, kurulumu ücretsiz ve 2 dakika sürer)
 
-> Windows SmartScreen "Tanınmayan yayıncı" uyarısı gösterebilir çünkü
-> uygulama ücretli bir sertifikayla imzalanmamıştır. Bu normal bir durumdur —
-> **Daha fazla bilgi → Yine de çalıştır** ile devam edebilirsin. Kodun tamamı
-> bu repoda açık, istersen incele.
+## Nasıl derlenir (tek tık)
 
-### Seçenek 2 — Kaynaktan kendin derle
-1. [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) kur
-2. Bu repoyu indir/klonla
-3. `build.bat` dosyasına çift tıkla
-4. `output\PCOptimizer.exe` otomatik oluşur
+1. Bu klasörü (PCOptimizer) bilgisayarına indir / zip'i çıkar.
+2. `build.bat` dosyasına **çift tıkla**.
+3. Script otomatik olarak derler ve `output` klasörüne
+   tek bir `PCOptimizer.exe` dosyası koyar. Kaynak kodla karışmaz,
+   ayrı klasörde durur.
+4. `output\PCOptimizer.exe` dosyasına sağ tıklayıp
+   **"Yönetici olarak çalıştır"** seç (registry değiştirdiği için admin gerekir).
 
-## Kullanım
+## Masaüstüne kısayol koymak istersen
 
-1. Uygulamayı yönetici olarak aç
-2. İstediğin ayarları işaretle (checkbox)
-3. **"Seçilenleri Uygula"** butonuna bas
-4. Memnun kalmazsan **"Eski Haline Döndür"** ile tek tıkla geri al
+`output\PCOptimizer.exe` dosyasına sağ tık → **Gönder → Masaüstü (kısayol oluştur)**.
+Kısayola sağ tıklayıp Özellikler → Gelişmiş → "Yönetici olarak çalıştır"ı
+işaretlersen her seferinde otomatik admin ile açılır.
 
-## Proje yapısı
+## Klasör yapısı
+
+```
 PCOptimizer/
-├── build.bat ← çift tıkla, tek exe üretir
-├── src/PCOptimizer/
-│ ├── PCOptimizer.csproj
-│ ├── app.manifest ← admin yetkisi ister
-│ ├── App.xaml / .cs
-│ ├── MainWindow.xaml / .cs ← arayüz
-│ └── OptimizerService.cs ← optimizasyon + yedekleme mantığı
-└── output/ ← build sonrası exe burada oluşur
+├── build.bat              ← çift tıkla, exe'yi üretir
+├── README.md               ← bu dosya
+├── src/PCOptimizer/         ← C# kaynak kodu (WPF)
+│   ├── PCOptimizer.csproj
+│   ├── app.manifest         ← admin yetkisi ister
+│   ├── App.xaml / .cs
+│   ├── MainWindow.xaml / .cs ← arayüz
+│   └── OptimizerService.cs   ← optimizasyon + yedekleme mantığı
+└── output/                  ← build.bat çalıştıktan sonra exe burada oluşur
+```
 
-## Katkı
+## Cursor / VS Code ile geliştirmeye devam etmek istersen
 
-Pull request'lere açığım. Hata bulursan veya yeni (gerçek, belgelenmiş)
-bir optimizasyon önerin varsa bir Issue açabilirsin.
-
-## 💰 Support
-
-Bu araç işine yaradıysa geliştirilmeye devam etmesine destek olabilirsin:
-
-| Yöntem | Bilgi |
-|---|---|
-| ☕ Ko-fi | [ko-fi.com/htoklu](https://ko-fi.com/htoklu) |
-| 💳 IBAN (Yapı Kredi) | `TR910006701000000057870794` |
-| ₿ USDT (TRC20) | `TPRPEBtS8YbTnETdzFSNQezTNeqKfHtsLY` |
-| 📧 Email | htoklu1453@gmail.com |
-
-## Sorumluluk Reddi
-
-Bu araç sistem ayarlarını (registry, güç planı, ağ ayarları) değiştirir.
-Kullanmadan önce ne yaptığını anlamak için kodu incelemeni öneririz.
-Herhangi bir zarardan geliştirici sorumlu tutulamaz — ancak tüm değişiklikler
-yedeklenip geri alınabilir şekilde tasarlanmıştır.
+`src/PCOptimizer` klasörünü Cursor'da aç, `dotnet run` ile hızlıca test
+edebilirsin (admin terminalden çalıştırman gerekir çünkü registry'ye yazıyor).
