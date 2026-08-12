@@ -70,3 +70,11 @@ PCOptimizer/
 
 `src/PCOptimizer` klasörünü Cursor'da aç, `dotnet run` ile hızlıca test
 edebilirsin (admin terminalden çalıştırman gerekir çünkü registry'ye yazıyor).
+
+## Kurulum
+
+1. [Releases](../../releases) sekmesinden hazır `.exe` dosyasını indir,
+   **veya** kaynak koddan kendin derle (`build.bat` çift tıkla, `.NET 8 SDK` gerekir)
+2. Yönetici olarak çalıştır (registry değiştirdiği için admin yetkisi şart)
+3. İstediğin ayarları işaretle, "Seçilenleri Uygula"ya bas
+4. Memnun kalmazsan "Eski Haline Döndür" ile tek tıkla geri al
